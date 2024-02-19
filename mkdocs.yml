@@ -1,0 +1,81 @@
+site_name: Записная книжка
+
+#docs_dir: '/home/agate/GDprojects/godot/wiki/1_startGodot/startgodot/docs'
+
+site_dir: 'wiki/GENERIC/generic/build'
+
+repo_name: Мои репозитории
+
+repo_url: https://github.com/BountyHanter
+
+
+#site_url: https://example.com/
+nav:
+  - 'Документация для ИКТ':
+      - Техническая документация: tech_docs.md
+      - Инструкция: instructions.md
+
+
+
+
+
+#theme: readthedocs
+theme:
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - header.autohide
+    - navigation.indexes
+  name: material
+  logo: assets/book.svg
+  palette:
+    scheme: slate
+    primary: yellow
+    accent: red
+  icon:
+    repo: fontawesome/brands/github
+
+
+
+dev_addr:
+  127.0.0.1:8200
+
+
+  #markdown_extensions:
+    #- toc:
+        #permalink: True
+
+markdown_extensions:
+
+
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  #- toc:
+      #permalink: True
+
+
+# сворачивание страниц
+# collapse_single_pages: true
+
+plugins:
+    - search
+    - awesome-pages
+    - glightbox
+    - tags:
+
+
+site_author:
+    Денис Гуляев
+
+
+#pip
+#pip install mkdocs-awesome-pages-plugin

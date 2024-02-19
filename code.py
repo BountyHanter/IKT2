@@ -24,7 +24,7 @@ def take_info():
     print("Введите образование, посредство ввода цифры")
     while True:
         try:
-            num = int(input("1: Среднее\n2:Высшее\n3: Кандидат наук\n4: Доктор наук\n"))
+            num = int(input("1: Среднее\n2: Высшее\n3: Кандидат наук\n4: Доктор наук\n"))
             if num not in num_dict:
                 raise ValueError
             break

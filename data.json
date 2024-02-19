@@ -4,5 +4,11 @@
         "surname": "k",
         "age": "2009",
         "education": "Доктор наук"
+    },
+    {
+        "name": "Денис",
+        "surname": "Гуляев",
+        "age": "1995",
+        "education": "Высшее"
     }
 ]
