@@ -1,15 +1,9 @@
 site_name: Записная книжка
-
-#docs_dir: '/home/agate/GDprojects/godot/wiki/1_startGodot/startgodot/docs'
-
 site_dir: 'wiki/GENERIC/generic/build'
-
+site_url: https://bountyhanter.github.io/IKT2/
 repo_name: Мои репозитории
-
 repo_url: https://github.com/BountyHanter
 
-
-#site_url: https://example.com/
 nav:
   - 'Документация для ИКТ':
       - Техническая документация: tech_docs.md
