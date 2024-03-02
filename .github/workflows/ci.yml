@@ -22,8 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install mkdocs mkdocs-material
         pip install mkdocs-awesome-pages-plugin
-        # Удалите строку ниже, если glightbox не предполагает установку через pip
-        # pip install glightbox-plugin  # Это пример, замените на реальное название, если таковое есть
 
     - name: Build and deploy
       run: mkdocs gh-deploy --force
