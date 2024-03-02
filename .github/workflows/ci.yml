@@ -1,28 +1,29 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy MkDocs Site
 
 on:
   push:
     branches:
-      - main  # Или master, в зависимости от имени вашей основной ветки
+      - main  # Актуализируйте, если ваша основная ветка имеет другое имя
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
-      with:
-        persist-credentials: false  # Это необходимо для работы с GitHub Pages
 
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # Устанавливает версию Python
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install mkdocs mkdocs-material mkdocs-awesome-pages-plugin
-        # Или используйте pip install -r requirements.txt, если у вас есть файл requirements.txt
+        pip install mkdocs mkdocs-material
+        pip install mkdocs-awesome-pages-plugin
+        # Удалите строку ниже, если glightbox не предполагает установку через pip
+        # pip install glightbox-plugin  # Это пример, замените на реальное название, если таковое есть
 
     - name: Build and deploy
       run: mkdocs gh-deploy --force
