@@ -1,6 +1,7 @@
 import json
 import os
 from name_file import name as filename
+from is_numbers import is_number as is_not_number
 
 
 def add_data(new_dict):
@@ -19,12 +20,18 @@ def add_data(new_dict):
 def take_info():
     name = input('Введите имя\n')
     surname = input('Введите фамилию\n')
-    age = input('Ведите год рождения\n')
+    while True:
+        gg = input('Ведите год рождения\n')
+        if is_not_number(gg):
+            age = gg
+            break
+        else:
+            print('Вы ввели год не корректно, повторите')
     num_dict = {1: "Среднее", 2: "Высшее", 3: "Кандидат наук", 4: "Доктор наук"}
     print("Введите образование, посредство ввода цифры")
     while True:
         try:
-            num = int(input("1: Среднее\n2: Высшее\n3: Кандидат наук\n4: Доктор наук\n"))
+            num = int(input("1: Среднее\n2:Высшее\n3: Кандидат наук\n4: Доктор наук\n"))
             if num not in num_dict:
                 raise ValueError
             break
@@ -72,7 +79,13 @@ def correct_info():
             elif choice == '2':
                 result['surname'] = input("Введите новую фамилию:\n")
             elif choice == '3':
-                result['age'] = input("Введите новый год рождения:\n")
+                while True:
+                    gg = input('Ведите новый год рождения\n')
+                    if is_not_number(gg):
+                        age = gg
+                        break
+                    else:
+                        print('Вы ввели год не корректно, повторите')
             elif choice == '4':
                 print("Введите новое образование:")
                 num_dict = {1: "Среднее", 2: "Высшее", 3: "Кандидат наук", 4: "Доктор наук"}
@@ -95,16 +108,16 @@ def correct_info():
 
 def take_json():
     def take():
-        if not os.path.exists(filename):
-            print("файла не существует")
-            return None
-
-        with open(filename, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-
-        if not data or data == []:
-            print("Данных нет")
-            return None
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                # Попытка чтения и декодирования JSON
+                data = json.load(f)
+        except FileNotFoundError:
+            print("Файл не найден.")
+            return None  # или обработка ошибки
+        except json.decoder.JSONDecodeError:
+            print("Файл пуст или содержит некорректный JSON.")
+            return None  # или обработка ошибки
 
         return data
 
@@ -117,8 +130,16 @@ def take_json():
 
 
 def print_all_info():
-    with open(filename, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            # Попытка чтения и декодирования JSON
+            data = json.load(f)
+    except FileNotFoundError:
+        print("Файл не найден.")
+        return None  # или обработка ошибки
+    except json.decoder.JSONDecodeError:
+        print("Файл пуст или содержит некорректный JSON.")
+        return None  # или обработка ошибки
     for person in data:
         print(f"Имя: {person['name']}, Фамилия: {person['surname']}, Год рождения: {person['age']}, Образование: {person['education']}")
     print('\n\n')
