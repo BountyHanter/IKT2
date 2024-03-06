@@ -10,6 +10,8 @@ nav:
       - Инструкция: instructions.md
   - 'Линейная регрессия':
       - Доклад : result.md
+  - 'Создание Telegram бота':
+      - Документация: tg_bot.md
 
 
 
